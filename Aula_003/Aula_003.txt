@@ -1,0 +1,225 @@
+Derivação de um Código a partir da Gramática da Linguagem C
+1. Linguagem escolhida
+A linguagem escolhida para realizar esta atividade foi a linguagem C.
+
+Escolhi C porque é uma linguagem bastante conhecida e possui uma estrutura
+sintática que permite visualizar bem a relação entre uma gramática formal e um programa.
+Para esta atividade, será utilizado um exemplo simples de atribuição com uma operação de soma.
+
+2. Fonte da gramática consultada
+Para realizar a atividade, foi consultada a documentação do cppreference,
+na parte referente à linguagem C. A documentação apresenta informações sobre a sintaxe da linguagem,
+incluindo expressões, operadores e instruções.
+
+Fonte principal:
+
+cppreference — C language:
+https://en.cppreference.com/w/c/language
+
+Também foi consultado o GNU C Language Manual, principalmente a parte que explica expressões e operadores de atribuição.
+
+GNU C Language Manual:
+https://www.gnu.org/software/c-intro-and-ref/manual.html
+
+A gramática de C é normalmente apresentada usando uma notação semelhante à BNF (Backus-Naur Form).
+Nesta atividade, eu não utilizarei a gramática completa da linguagem, pois ela é bastante extensa.
+Serão selecionadas apenas algumas regras necessárias para representar o código escolhido.
+
+3. Produções selecionadas
+Para facilitar a demonstração, foram selecionadas e simplificadas algumas regras da gramática de C:
+
+<expression-statement> ::= <expression> ";"
+
+<expression> ::= <assignment-expression>
+
+<assignment-expression> ::= <identifier> "=" <additive-expression>
+
+<additive-expression> ::= <multiplicative-expression>
+                        | <additive-expression> "+" <multiplicative-expression>
+
+<multiplicative-expression> ::= <primary-expression>
+
+<primary-expression> ::= <identifier>
+                       | <constant>
+
+<identifier> ::= "x"
+
+<constant> ::= "5" | "3"
+
+Essas regras são uma versão simplificada para fins didáticos. Elas não representam toda a gramática da linguagem C,
+mas são suficientes para gerar o pequeno trecho de código escolhido.
+
+A documentação do cppreference mostra que uma instrução de expressão em C é formada por uma expressão seguida de ponto e vírgula.
+Ela também apresenta a atribuição e os operadores aritméticos como partes das expressões da linguagem.
+{"fallbackMarkdown":"(Cppreference)","reference":{"matched_text":"","prefix":null,"start_idx":2863,"end_idx":2908,"safe_urls":["https://en.cppreference.com/c/language/expressions","https://en.cppreference.com/c/language/expressions?utm_source=chatgpt.com","https://en.cppreference.com/c/language/operator_assignment","https://en.cppreference.com/c/language/operator_assignment?utm_source=chatgpt.com","https://en.cppreference.com/c/language/statements","https://en.cppreference.com/c/language/statements?utm_source=chatgpt.com"],"refs":[],"alt":"(Cppreference)","prompt_text":null,"type":"grouped_webpages","style":null,"status":"done","fallback_items":null,"error":null,"items":[{"title":"Statements - cppreference.com","url":"https://en.cppreference.com/c/language/statements?utm_source=chatgpt.com","attribution":"Cppreference","pub_date":null,"snippet":"","attribution_segments":null,"supporting_websites":[{"title":"Expressions - cppreference.com","url":"https://en.cppreference.com/c/language/expressions?utm_source=chatgpt.com","pub_date":null,"snippet":"","attribution":"Cppreference"},{"title":"Assignment operators - cppreference.com","url":"https://en.cppreference.com/c/language/operator_assignment?utm_source=chatgpt.com","pub_date":null,"snippet":"","attribution":"Cppreference"}],"refs":[{"turn_index":0,"ref_type":"search","ref_index":1},{"turn_index":0,"ref_type":"search","ref_index":2},{"turn_index":0,"ref_type":"search","ref_index":4}],"hue":null,"attributions":null}]},"showLoginRequiredCard":false}
+
+De maneira simples, podemos entender as principais regras da seguinte forma:
+
+<expression-statement> representa uma instrução formada por uma expressão e ;.
+<expression> representa uma expressão.
+<assignment-expression> representa uma atribuição, como x = 5.
+<additive-expression> permite representar operações como 5 + 3.
+<multiplicative-expression> representa uma expressão de nível inferior à soma.
+<primary-expression> representa elementos básicos de uma expressão.
+<identifier> representa o nome de uma variável.
+<constant> representa um valor constante, como 5 ou 3.
+
+No caso da atribuição, o operador = é utilizado para armazenar o valor da expressão da direita na variável que aparece à esquerda.
+{"fallbackMarkdown":"(GNU)","reference":{"matched_text":"","prefix":null,"start_idx":3659,"end_idx":3692,"safe_urls":["https://en.cppreference.com/c/language/operator_assignment","https://en.cppreference.com/c/language/operator_assignment?utm_source=chatgpt.com","https://www.gnu.org/software/c-intro-and-ref/manual/c-intro-and-ref.pdf","https://www.gnu.org/software/c-intro-and-ref/manual/c-intro-and-ref.pdf?utm_source=chatgpt.com"],"refs":[],"alt":"(GNU)","prompt_text":null,"type":"grouped_webpages","style":null,"status":"done","fallback_items":null,"error":null,"items":[{"title":"7 Assignment Expressions","url":"https://www.gnu.org/software/c-intro-and-ref/manual/c-intro-and-ref.pdf?utm_source=chatgpt.com","attribution":"GNU","pub_date":1747324580,"snippet":"","attribution_segments":null,"supporting_websites":[{"title":"Assignment operators - cppreference.com","url":"https://en.cppreference.com/c/language/operator_assignment?utm_source=chatgpt.com","pub_date":null,"snippet":"","attribution":"Cppreference"}],"refs":[{"turn_index":0,"ref_type":"search","ref_index":24},{"turn_index":0,"ref_type":"search","ref_index":4}],"hue":null,"attributions":null}]},"showLoginRequiredCard":false}
+
+4. Código que será gerado
+O código escolhido para realizar a derivação é:
+
+x = 5 + 3;
+
+Esse é um exemplo pequeno, mas permite mostrar mais de uma regra da gramática. Nele, a variável x recebe o resultado da soma entre 5 e 3.
+
+É importante observar que, em um programa C completo, a variável x precisaria estar declarada. Porém, para o objetivo desta atividade, estamos analisando somente a construção sintática da instrução de atribuição.
+
+5. Derivação passo a passo
+A derivação começa pelo símbolo inicial:
+
+<expression-statement>
+
+Primeiro, aplicamos a regra:
+
+<expression-statement> ::= <expression> ";"
+
+Então temos:
+
+<expression-statement>
+-> <expression> ";"
+
+Agora aplicamos:
+
+<expression> ::= <assignment-expression>
+
+Resultado:
+
+<expression-statement>
+-> <expression> ";"
+-> <assignment-expression> ";"
+
+Em seguida, utilizamos a regra de atribuição:
+
+<assignment-expression> ::= <identifier> "=" <additive-expression>
+
+Assim:
+
+<expression-statement>
+-> <assignment-expression> ";"
+-> <identifier> "=" <additive-expression> ";"
+
+Para gerar a variável x, usamos:
+
+<identifier> ::= "x"
+
+Portanto:
+
+<expression-statement>
+-> <identifier> "=" <additive-expression> ";"
+-> "x" "=" <additive-expression> ";"
+
+Agora precisamos gerar a expressão 5 + 3.
+
+Para isso, usamos a regra:
+
+<additive-expression> ::= <additive-expression> "+" <multiplicative-expression>
+
+Neste exemplo, podemos representar a expressão como:
+
+<additive-expression>
+-> <multiplicative-expression> "+" <multiplicative-expression>
+
+Depois, cada <multiplicative-expression> pode ser substituído por <primary-expression>:
+
+<additive-expression>
+-> <primary-expression> "+" <primary-expression>
+
+Agora utilizamos:
+
+<primary-expression> ::= <constant>
+
+obtendo:
+
+<additive-expression>
+-> <constant> "+" <constant>
+
+Por fim, substituímos os dois <constant> pelos valores desejados:
+
+<constant> ::= "5" | "3"
+
+Assim:
+
+<additive-expression>
+-> "5" "+" "3"
+
+Juntando todas as etapas, temos a derivação completa:
+
+<expression-statement>
+-> <expression> ";"
+-> <assignment-expression> ";"
+-> <identifier> "=" <additive-expression> ";"
+-> "x" "=" <additive-expression> ";"
+-> "x" "=" <primary-expression> "+" <primary-expression> ";"
+-> "x" "=" <constant> "+" <constant> ";"
+-> "x" "=" "5" "+" "3" ";"
+
+Chegamos finalmente à sequência de símbolos:
+
+x = 5 + 3;
+
+6. Símbolos terminais e não terminais
+Durante a derivação, podemos perceber que existem dois tipos principais de símbolos.
+
+Os símbolos não terminais são aqueles que ainda podem ser substituídos por meio de alguma regra de produção. Neste exemplo, temos:
+
+<expression-statement>
+<expression>
+<assignment-expression>
+<additive-expression>
+<multiplicative-expression>
+<primary-expression>
+<identifier>
+<constant>
+
+Já os símbolos terminais são aqueles que aparecem no resultado final e não precisam mais ser substituídos.
+
+Neste caso, os principais terminais são:
+
+x
+=
+5
++
+3
+;
+
+Por exemplo, <identifier> é um não terminal, pois ainda precisa ser substituído. Quando aplicamos a regra <identifier> ::= "x", chegamos ao terminal x.
+
+O mesmo acontece com <constant>, que pode ser substituído por 5 ou 3.
+
+7. Resultado final
+Depois de aplicar todas as regras selecionadas, o código gerado é:
+
+x = 5 + 3;
+
+A derivação mostra, passo a passo, como começamos com um símbolo não terminal e
+fomos substituindo cada parte até chegar somente aos símbolos que aparecem no código.
+
+Esse exemplo também ajuda a perceber que a gramática funciona como uma espécie de conjunto de regras para
+determinar quais construções podem formar uma instrução válida na linguagem. No caso analisado, a regra de atribuição permitiu construir x = ..., enquanto as regras de expressão permitiram construir 5 + 3.
+
+Portanto, mesmo utilizando apenas uma pequena parte da gramática de C, foi possível relacionar os conceitos estudados de símbolos terminais,
+símbolos não terminais, produções e derivação com um código real da linguagem.
+
+8. Referências
+CPPREFERENCE. C language. Disponível em: https://en.cppreference.com/w/c/language. Acesso em: 25 ago. 2026.
+
+CPPREFERENCE. Statements — C. Disponível em: https://en.cppreference.com/w/c/language/statements. Acesso em: 25 ago. 2026.
+
+CPPREFERENCE. Expressions — C. Disponível em: https://en.cppreference.com/w/c/language/expressions. Acesso em: 25 ago. 2026.
+
+CPPREFERENCE. Assignment operators — C. Disponível em: https://en.cppreference.com/w/c/language/operator_assignment. Acesso em: 25 ago. 2026.
+
+GNU PROJECT. GNU C Language Manual. Disponível em: https://www.gnu.org/software/c-intro-and-ref/manual.html. Acesso em: 25 ago. 2026.
+:::{"fallbackMarkdown":"","reference":{"matched_text":" ","prefix":null,"start_idx":8594,"end_idx":8594,"safe_urls":[],"refs":[],"alt":"","prompt_text":null,"type":"sources_footnote","sources":[{"title":"Statements - cppreference.com","url":"https://en.cppreference.com/c/language/statements?utm_source=chatgpt.com","attribution":"Cppreference"},{"title":"7 Assignment Expressions","url":"https://www.gnu.org/software/c-intro-and-ref/manual/c-intro-and-ref.pdf?utm_source=chatgpt.com","attribution":"GNU"}],"has_images":false},"showLoginRequiredCard":false}
